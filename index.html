@@ -2,63 +2,76 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>презентация</title>
+    <title>Презентация</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="slides-container">
-      
+
         <div class="slide active" id="devices">
-            <h1>Устройства ПК</h1>
+            <h1><i class="fas fa-desktop"></i> Устройства ПК</h1>
             <div class="links">
-                <button onclick="showSlide('system-block')">Системный блок</button>
-                <button onclick="showSlide('external-devices')">Внешние устройства</button>
+                <button onclick="showSlide('system-block')">
+                    <i class="fas fa-tower-broadcast"></i> Системный блок
+                </button>
+                <button onclick="showSlide('external-devices')">
+                    <i class="fas fa-keyboard"></i> Внешние устройства
+                </button>
             </div>
+            <div class="timer-bar"></div>
         </div>
 
         <div class="slide" id="system-block">
-            <h1>Системный блок</h1>
-            <table>
-                <tr><td>• материнская плата</td></tr>
-                <tr><td>• центральный процессор</td></tr>
-                <tr><td>• оперативная память</td></tr>
-                <tr><td>• жёсткий диск</td></tr>
-                <tr><td>• устройство для чтения/записи CD, DVD</td></tr>
-                <tr><td>• карты расширения</td></tr>
-                <tr><td>• блок питания</td></tr>
-                <tr><td>• порты компьютера</td></tr>
+            <h1><i class="fas fa-tower-broadcast"></i> Системный блок</h1>
+            <table class="components-table">
+                <tr><td><i class="fas fa-microchip"></i> Материнская плата</td></tr>
+                <tr><td><i class="fas fa-microchip"></i> Центральный процессор</td></tr>
+                <tr><td><i class="fas fa-memory"></i> Оперативная память</td></tr>
+                <tr><td><i class="fas fa-hdd"></i> Жёсткий диск</td></tr>
+                <tr><td><i class="fas fa-compact-disc"></i> Устройство для чтения CD/DVD</td></tr>
+                <tr><td><i class="fas fa-expand-alt"></i> Карты расширения</td></tr>
+                <tr><td><i class="fas fa-plug"></i> Блок питания</td></tr>
+                <tr><td><i class="fas fa-usb"></i> Порты компьютера</td></tr>
             </table>
-            <button class="back-btn" onclick="showSlide('devices')">Назад</button>
+            <button class="back-btn" onclick="showSlide('devices')">
+                <i class="fas fa-arrow-left"></i> Назад
+            </button>
+            <div class="timer-bar"></div>
         </div>
 
         <div class="slide" id="external-devices">
-            <h1>Внешние устройства</h1>
+            <h1><i class="fas fa-laptop"></i> Внешние устройства</h1>
             <table class="external-table">
                 <tr>
-                    <th>Устройства ввода</th>
-                    <th>Устройства вывода</th>
+                    <th><i class="fas fa-sign-in-alt"></i> Устройства ввода</th>
+                    <th><i class="fas fa-sign-out-alt"></i> Устройства вывода</th>
                 </tr>
                 <tr>
-                    <td>• клавиатура</td>
-                    <td>• монитор</td>
+                    <td><i class="fas fa-keyboard"></i> Клавиатура</td>
+                    <td><i class="fas fa-desktop"></i> Монитор</td>
                 </tr>
                 <tr>
-                    <td>• мышь</td>
-                    <td>• принтер</td>
+                    <td><i class="fas fa-mouse"></i> Мышь</td>
+                    <td><i class="fas fa-print"></i> Принтер</td>
                 </tr>
                 <tr>
-                    <td>• сканер</td>
-                    <td>• акустические колонки</td>
+                    <td><i class="fas fa-scanner"></i> Сканер</td>
+                    <td><i class="fas fa-volume-up"></i> Колонки</td>
                 </tr>
                 <tr>
-                    <td>• микрофон</td>
-                    <td>• наушники</td>
+                    <td><i class="fas fa-microphone"></i> Микрофон</td>
+                    <td><i class="fas fa-headphones"></i> Наушники</td>
                 </tr>
             </table>
-            <button class="back-btn" onclick="showSlide('devices')">Назад</button>
+            <button class="back-btn" onclick="showSlide('devices')">
+                <i class="fas fa-arrow-left"></i> Назад
+            </button>
+            <div class="timer-bar"></div>
         </div>
-    </div>
 
+    </div> 
     <script src="script.js"></script>
 </body>
 </html>

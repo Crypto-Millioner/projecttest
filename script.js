@@ -1,35 +1,52 @@
-let slideIndex = 0;
-let slides = document.getElementsByClassName("slide");
-let timer;
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+let slideInterval;
 
-showSlides();
+function showSlide(slideId) {
 
-function showSlides() {
-
-    for (let slide of slides) {
-        slide.classList.remove("active");
-    }
+    let newIndex = 0;
+    slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (slide.id === slideId) {
+            newIndex = index;
+        }
+    });
     
-    slides[slideIndex].classList.add("active");
-    
+    currentSlide = newIndex;
+    slides[currentSlide].classList.add('active');
+    resetTimer();
+}
+
+function nextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
     resetTimer();
 }
 
 function resetTimer() {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-        slideIndex = (slideIndex + 1) % slides.length;
-        showSlides();
-    }, 180000); 
-}
+    clearInterval(slideInterval);
 
+    document.querySelectorAll('.timer-bar').forEach(bar => {
+        bar.style.animation = 'none';
+        void bar.offsetWidth;
+        bar.style.animation = 'timer 180s linear forwards';
+    });
+    slideInterval = setInterval(nextSlide, 180000); }
 
-function showSlide(slideId) {
-    for (let i = 0; i < slides.length; i++) {
-        if (slides[i].id === slideId) {
-            slideIndex = i;
-            showSlides();
-            break;
+document.addEventListener('DOMContentLoaded', () => {
+
+    slides[0].classList.add('active');
+
+    resetTimer();
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            resetTimer();
         }
-    }
-}
+    });
+});

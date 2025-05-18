@@ -1,73 +1,245 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
-    background: #f0f0f0;
+    background: #f5f7fa;
+    color: #333;
 }
 
 .slides-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+    position: relative;
 }
 
 .slide {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     background: white;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    visibility: hidden;
 }
 
 .slide.active {
-    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
 }
 
 h1 {
     color: #2c3e50;
     text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
 }
 
-table {
-    width: 100%;
-    margin: 20px 0;
-    border-collapse: collapse;
-}
-
-td, th {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-th {
-    background-color: #3498db;
-    color: white;
+h1 i {
+    margin-right: 15px;
+    color: #3498db;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 25px;
     margin: 5px;
     cursor: pointer;
     background: #3498db;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
 }
 
 button:hover {
     background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+button i {
+    margin-right: 8px;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 40px;
 }
 
 .back-btn {
     display: block;
-    margin: 20px auto 0;
+    margin: 30px auto 0;
+    padding: 10px 20px;
 }
 
-.links {
+.components-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.components-list div {
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.components-list div:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.components-list i {
+    margin-right: 10px;
+    color: #3498db;
+    width: 20px;
     text-align: center;
-    margin-top: 40px;
 }
 
-.external-table td {
-    width: 50%;
+.components-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+.components-table td {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s;
+}
+
+.components-table tr:hover td {
+    background-color: #f8f9fa;
+}
+
+.components-table i {
+    margin-right: 10px;
+    color: #3498db;
+    width: 20px;
+    text-align: center;
+}
+
+.devices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.input-devices, .output-devices {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+h2 i {
+    margin-right: 10px;
+}
+
+.devices-grid div div {
+    padding: 10px;
+    margin: 8px 0;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.devices-grid i {
+    margin-right: 10px;
+    color: #3498db;
+    width: 20px;
+    text-align: center;
+}
+
+.external-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.external-table th, .external-table td {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.external-table th {
+    background-color: #3498db;
+    color: white;
+}
+
+.external-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.external-table tr:hover {
+    background-color: #e9ecef;
+}
+
+.timer-bar {
+    height: 5px;
+    background: #3498db;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 0 15px 15px;
+    animation: timer 180s linear forwards;
+}
+
+@keyframes timer {
+    from { width: 100% }
+    to { width: 0% }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .slide {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    button {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .devices-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .components-list {
+        grid-template-columns: 1fr;
+    }
 }
