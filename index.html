@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>презентация</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="slides-container">
+      
+        <div class="slide active" id="devices">
+            <h1>Устройства ПК</h1>
+            <div class="links">
+                <button onclick="showSlide('system-block')">Системный блок</button>
+                <button onclick="showSlide('external-devices')">Внешние устройства</button>
+            </div>
+        </div>
+
+        <div class="slide" id="system-block">
+            <h1>Системный блок</h1>
+            <table>
+                <tr><td>• материнская плата</td></tr>
+                <tr><td>• центральный процессор</td></tr>
+                <tr><td>• оперативная память</td></tr>
+                <tr><td>• жёсткий диск</td></tr>
+                <tr><td>• устройство для чтения/записи CD, DVD</td></tr>
+                <tr><td>• карты расширения</td></tr>
+                <tr><td>• блок питания</td></tr>
+                <tr><td>• порты компьютера</td></tr>
+            </table>
+            <button class="back-btn" onclick="showSlide('devices')">Назад</button>
+        </div>
+
+        <div class="slide" id="external-devices">
+            <h1>Внешние устройства</h1>
+            <table class="external-table">
+                <tr>
+                    <th>Устройства ввода</th>
+                    <th>Устройства вывода</th>
+                </tr>
+                <tr>
+                    <td>• клавиатура</td>
+                    <td>• монитор</td>
+                </tr>
+                <tr>
+                    <td>• мышь</td>
+                    <td>• принтер</td>
+                </tr>
+                <tr>
+                    <td>• сканер</td>
+                    <td>• акустические колонки</td>
+                </tr>
+                <tr>
+                    <td>• микрофон</td>
+                    <td>• наушники</td>
+                </tr>
+            </table>
+            <button class="back-btn" onclick="showSlide('devices')">Назад</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
